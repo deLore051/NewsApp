@@ -11,31 +11,17 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "CategoryCollectionViewCell"
     
-    private let imageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.clipsToBounds = true
-        imageView.layer.borderWidth = 2
-        imageView.layer.borderColor = UIColor.label.cgColor
-        imageView.layer.cornerRadius = 20
-        imageView.contentMode = .scaleAspectFill
-        
-        return imageView
-    }()
-    
     private let label: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 22, weight: .medium)
         label.clipsToBounds = true
-        label.textColor = .white
         return label
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubview(imageView)
         addSubview(label)
         addConstraints()
         clipsToBounds = true
@@ -47,28 +33,44 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     }
     
     private func addConstraints() {
-        // ImageView
-        imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        imageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        imageView.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
-        imageView.heightAnchor.constraint(equalTo: contentView.heightAnchor).isActive = true
         
         // Label
         label.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         label.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        label.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
-        label.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        label.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.8).isActive = true
+        label.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.9).isActive = true
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        self.imageView.image = nil
         self.label.text = nil
     }
     
     public func configure(with category: Category) {
-        self.imageView.image = category.categoryImage
         self.label.text = category.categoryName
+        self.layer.borderWidth = 2
+        self.layer.borderColor = UIColor.label.cgColor
+    }
+    
+    public func getCellTitle() -> String {
+        guard let title = label.text else {
+            return "default"
+        }
+        return title
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        self.layer.borderColor = UIColor.label.cgColor
+    }
+    
+    override var isSelected: Bool {
+        didSet {
+            if self.isSelected {
+                self.backgroundColor = .systemTeal
+            } else {
+                self.backgroundColor = .systemBackground
+            }
+        }
     }
     
 }

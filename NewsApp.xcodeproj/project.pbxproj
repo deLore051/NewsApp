@@ -19,6 +19,7 @@
 		7FB223AD272C55B40094F44E /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB223AC272C55B40094F44E /* CategoryCollectionViewCell.swift */; };
 		7FB223AF272C58D40094F44E /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB223AE272C58D40094F44E /* Category.swift */; };
 		7FB223B1272C617E0094F44E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB223B0272C617E0094F44E /* Constants.swift */; };
+		7FB223B3272EC2ED0094F44E /* UIButton+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB223B2272EC2ED0094F44E /* UIButton+Additions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		7FB223AC272C55B40094F44E /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		7FB223AE272C58D40094F44E /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		7FB223B0272C617E0094F44E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7FB223B2272EC2ED0094F44E /* UIButton+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Additions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				7FB2238B272C4B1F0094F44E /* AppDelegate.swift */,
 				7FB2238D272C4B1F0094F44E /* SceneDelegate.swift */,
 				7FB223B0272C617E0094F44E /* Constants.swift */,
+				7FB223B2272EC2ED0094F44E /* UIButton+Additions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				7FB22390272C4B1F0094F44E /* HomeViewController.swift in Sources */,
 				7FB2238C272C4B1F0094F44E /* AppDelegate.swift in Sources */,
 				7FB223A5272C4C540094F44E /* CategoriesViewController.swift in Sources */,
+				7FB223B3272EC2ED0094F44E /* UIButton+Additions.swift in Sources */,
 				7FB223B1272C617E0094F44E /* Constants.swift in Sources */,
 				7FB2238E272C4B1F0094F44E /* SceneDelegate.swift in Sources */,
 				7FB223A7272C4C6C0094F44E /* NewsSourcesViewController.swift in Sources */,

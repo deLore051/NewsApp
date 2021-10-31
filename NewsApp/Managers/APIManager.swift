@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+class APIManager {
+    
+    static let shared = APIManager()
+    
+    public var selectedCategories: [String] = []
+    
+    private init() { }
+}

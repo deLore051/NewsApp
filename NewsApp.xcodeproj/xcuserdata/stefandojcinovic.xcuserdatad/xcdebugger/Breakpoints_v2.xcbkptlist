@@ -14,8 +14,8 @@
             filePath = "NewsApp/Controllers/CategoriesViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
             landmarkName = "createCategoriesModel()"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,9 +30,257 @@
             filePath = "NewsApp/Controllers/CategoriesViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
             landmarkName = "collectionView(_:numberOfItemsInSection:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "136DDB58-C061-4C12-9174-2BDE10334803"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewsApp/Controllers/CategoriesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "CategoriesViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "136DDB58-C061-4C12-9174-2BDE10334803 - 2d1eb3aac94ae63c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NewsApp.CategoriesViewController.categoriesModel.getter : Swift.Array&lt;NewsApp.Category&gt;"
+                  moduleName = "NewsApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/stefandojcinovic/Documents/xcode/NewsApp/NewsApp/Controllers/CategoriesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "122">
+               </Location>
+               <Location
+                  uuid = "136DDB58-C061-4C12-9174-2BDE10334803 - 115ab5e32b802208"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NewsApp.CategoriesViewController.categoriesModel.setter : Swift.Array&lt;NewsApp.Category&gt;"
+                  moduleName = "NewsApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/stefandojcinovic/Documents/xcode/NewsApp/NewsApp/Controllers/CategoriesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "148">
+               </Location>
+               <Location
+                  uuid = "136DDB58-C061-4C12-9174-2BDE10334803 - dd7555a4045d5b64"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NewsApp.CategoriesViewController.categoriesModel.modify : Swift.Array&lt;NewsApp.Category&gt;"
+                  moduleName = "NewsApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/stefandojcinovic/Documents/xcode/NewsApp/NewsApp/Controllers/CategoriesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  uuid = "136DDB58-C061-4C12-9174-2BDE10334803 - f9689c7dced8767a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NewsApp.CategoriesViewController.categoriesModel.modify : Swift.Array&lt;NewsApp.Category&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "NewsApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/stefandojcinovic/Documents/xcode/NewsApp/NewsApp/Controllers/CategoriesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "8">
+               </Location>
+               <Location
+                  uuid = "136DDB58-C061-4C12-9174-2BDE10334803 - 874309389bdc1c2e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NewsApp.CategoriesViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; NewsApp.CategoriesViewController"
+                  moduleName = "NewsApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/stefandojcinovic/Documents/xcode/NewsApp/NewsApp/Controllers/CategoriesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "271">
+               </Location>
+               <Location
+                  uuid = "136DDB58-C061-4C12-9174-2BDE10334803 - d9427436d84bb647"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NewsApp.CategoriesViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;NewsApp.CategoriesViewController&gt;"
+                  moduleName = "NewsApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/stefandojcinovic/Documents/xcode/NewsApp/NewsApp/Controllers/CategoriesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "218">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "970E3FA0-0B11-45B2-9B3D-752F4120CA5E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewsApp/Controllers/CategoriesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "CategoriesViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "970E3FA0-0B11-45B2-9B3D-752F4120CA5E - 8034692752cd705e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NewsApp.CategoriesViewController.selectedCategories.getter : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "NewsApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/stefandojcinovic/Documents/xcode/NewsApp/NewsApp/Controllers/CategoriesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "122">
+               </Location>
+               <Location
+                  uuid = "970E3FA0-0B11-45B2-9B3D-752F4120CA5E - f786b2d80e8cec6a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NewsApp.CategoriesViewController.selectedCategories.setter : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "NewsApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/stefandojcinovic/Documents/xcode/NewsApp/NewsApp/Controllers/CategoriesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "148">
+               </Location>
+               <Location
+                  uuid = "970E3FA0-0B11-45B2-9B3D-752F4120CA5E - 3c14631881f3dd25"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NewsApp.CategoriesViewController.selectedCategories.modify : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "NewsApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/stefandojcinovic/Documents/xcode/NewsApp/NewsApp/Controllers/CategoriesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  uuid = "970E3FA0-0B11-45B2-9B3D-752F4120CA5E - 43150d1acbfeeb05"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NewsApp.CategoriesViewController.selectedCategories.modify : Swift.Array&lt;Swift.String&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "NewsApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/stefandojcinovic/Documents/xcode/NewsApp/NewsApp/Controllers/CategoriesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "8">
+               </Location>
+               <Location
+                  uuid = "970E3FA0-0B11-45B2-9B3D-752F4120CA5E - 874309389bdc1c0f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NewsApp.CategoriesViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; NewsApp.CategoriesViewController"
+                  moduleName = "NewsApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/stefandojcinovic/Documents/xcode/NewsApp/NewsApp/Controllers/CategoriesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "204">
+               </Location>
+               <Location
+                  uuid = "970E3FA0-0B11-45B2-9B3D-752F4120CA5E - d9427436d84bb666"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NewsApp.CategoriesViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;NewsApp.CategoriesViewController&gt;"
+                  moduleName = "NewsApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/stefandojcinovic/Documents/xcode/NewsApp/NewsApp/Controllers/CategoriesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "160">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "95AFBB03-DE7A-4EFF-A2C5-DA4CFCA6A923"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewsApp/Managers/APIManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "APIManager"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0BE4C138-A0B8-4281-9A25-CE9E49A7DA3A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewsApp/Controllers/CategoriesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "didTapNextButton()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
