@@ -66,7 +66,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             if self.isSelected {
-                self.backgroundColor = .systemTeal
+                self.backgroundColor = .systemBlue
             } else {
                 self.backgroundColor = .systemBackground
             }

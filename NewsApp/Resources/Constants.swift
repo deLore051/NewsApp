@@ -8,6 +8,7 @@
 import Foundation
 
 struct Constansts {
+    
     static let categoryImages = [
         "business_category_image",
         "entertainment_category_image",
@@ -26,5 +27,29 @@ struct Constansts {
         "Science",
         "Sports",
         "Technology"
+    ]
+    
+    static let countrySourceNames: [String] = [
+        "Argentina", "Australia", "Austria", "Belgium", "Brazil", "Bulgaria",
+        "Canada", "China", "Columbia", "Cuba", "Czech Republic", "Egypt",
+        "France", "Germany", "Greece", "Hong Kong", "Hungary", "India",
+        "Indonesia", "Ireland", "Israel", "Italy", "Japan", "Latvia",
+        "Lithuania", "Malaysia", "Mexico", "Morocco", "Netherlands", "New Zeland",
+        "Nigeria", "Norway", "Philippines", "Poland", "Portugal", "Romania",
+        "Russia", "Saudi Arabia", "Serbia", "Singapore", "Slovakia", "Slovenia",
+        "South Africa", "South Korea", "Sweden", "Switzerland", "Taiwan", "Thailand",
+        "Turkey", "UAE", "Ukraine", "United Kingdom", "United States", "Venezuela"
+    ]
+    
+    static let countryCodes: [String] = [
+        "ar", "au", "at", "be", "br", "bg",
+        "ca", "cn", "co", "cu", "cz", "eg",
+        "fr", "de", "gr", "hk", "hu", "in",
+        "id", "ie", "il", "it", "jp", "lv",
+        "lt", "my", "mx", "ma", "nl", "nz",
+        "ng", "no", "ph", "pl", "pt", "ro",
+        "ru", "sa", "rs", "sg", "sk", "si",
+        "za", "kr", "se", "ch", "tw", "th",
+        "tr", "ae", "ua", "uk", "us", "ve"
     ]
 }
