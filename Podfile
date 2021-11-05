@@ -6,5 +6,6 @@ target 'NewsApp' do
   use_frameworks!
 
   pod 'FlagKit'
+  pod 'SDWebImage'
 
 end

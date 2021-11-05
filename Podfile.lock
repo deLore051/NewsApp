@@ -1,16 +1,22 @@
 PODS:
   - FlagKit (2.2)
+  - SDWebImage (5.11.1):
+    - SDWebImage/Core (= 5.11.1)
+  - SDWebImage/Core (5.11.1)
 
 DEPENDENCIES:
   - FlagKit
+  - SDWebImage
 
 SPEC REPOS:
   trunk:
     - FlagKit
+    - SDWebImage
 
 SPEC CHECKSUMS:
   FlagKit: eca7dc89064b0c986302ba9acefad1bf80a435b1
+  SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
 
-PODFILE CHECKSUM: 0e15d31735a08ef4eecc1bdf20b6147f9ac2cd96
+PODFILE CHECKSUM: 362feba57cd15aed94956ee222b8c5a53cc67190
 
 COCOAPODS: 1.10.1
