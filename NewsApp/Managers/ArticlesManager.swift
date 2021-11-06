@@ -14,6 +14,7 @@ final class ArticlesManager {
     public var sources: [NewsSource] = []
     public var categories: [String] = []
     public var selectedSources: [String] = []
+    public var articlesToShow: [Article] = []
     
     
     private init() { }
@@ -61,21 +62,52 @@ final class ArticlesManager {
         }
     }
     
+    private func checkSelectedSourceId(for source: String) -> String? {
+        for i in 0..<sources.count {
+            if source == sources[i].name {
+                if sources[i].id != "", sources[i].id != nil {
+                    return sources[i].id!
+                }
+            }
+        }
+        return nil
+    }
+    
     //MARK: - Public
     
     /// Get top headlines for selected country
-    public func getTopHeadlines(country: String) {
-        APIManager.shared.getTopHeadlines(for: country) { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success(let response):
-                self.articles = response.articles
-                print(self.articles)
-            case .failure(let error):
-                print(error.localizedDescription)
+    public func getTopHeadlines() {
+        for i in 0..<selectedSources.count {
+            if let source = checkSelectedSourceId(for: selectedSources[i]) {
+                APIManager.shared.getTopHeadlines(for: source) { [weak self] result in
+                    guard let self = self else { return }
+                    switch result {
+                    case .success(let response):
+                        self.articlesToShow.append(contentsOf: response.articles)
+                    case.failure(let error):
+                        print(error.localizedDescription)
+                    }
+                }
+            } else {
+                APIManager.shared.getTopHeadlines(for: nil) { [weak self] result in
+                    guard let self = self else { return }
+                    switch result {
+                    case .success(let response):
+                        let newArticles = response.articles
+                        for j in 0..<newArticles.count {
+                            if self.selectedSources[i] == newArticles[j].source.name {
+                                self.articlesToShow.append(newArticles[j])
+                            }
+                        }
+                    case.failure(let error):
+                        print(error.localizedDescription)
+                    }
+
+                }
             }
         }
     }
+    
     
     /// Get all souces for a country, and a specific category if needed
     public func getSources(for country: String, category: String?) {
@@ -88,7 +120,7 @@ final class ArticlesManager {
                     self.sources = response.sources
                 }
                 guard !response.sources.isEmpty else {
-                    APIManager.shared.getTopHeadlines(for: country) { [weak self] newResult in
+                    APIManager.shared.getTopHeadlines(for: nil) { [weak self] newResult in
                         guard let self = self else { return }
                         switch newResult {
                         case .success(let newResponse):
@@ -126,7 +158,7 @@ final class ArticlesManager {
         }
     }
     
-    public func getArticlesForSelectedSources() -> [Article] {
+    public func getArticlesForSelectedSources(for articles: [Article]) -> [Article] {
         var articlesToShow: [Article] = []
         for i in 0..<selectedSources.count {
             for j in 0..<articles.count {

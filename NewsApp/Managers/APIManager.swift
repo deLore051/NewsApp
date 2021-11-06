@@ -41,11 +41,15 @@ final class APIManager {
     }
     
     /// Get top headlines for a country, specific category in a country, single or multiple sources
-    public func getTopHeadlines(for country: String, completion: @escaping (Result<TopHeadlinesResponse, Error>) -> Void) {
-        let url: String = Constansts.API.topHeadlinesAPIurl + selectedCountryCode
+    public func getTopHeadlines(for source: String?, completion: @escaping (Result<TopHeadlinesResponse, Error>) -> Void) {
+        var url: String = Constansts.API.topHeadlinesAPIurl + selectedCountryCode
+        if let source = source {
+            url = Constansts.API.topHeadlinesForSourceAPIurl + source
+        }
         createRequest(with: URL(string: url), type: .GET) { request in
             let task = URLSession.shared.dataTask(with: request) { data, _, error in
                 guard let data = data, error == nil else {
+                    print("Failed to get top headlines")
                     completion(.failure(APIError.failedToGetData))
                     return
                 }
