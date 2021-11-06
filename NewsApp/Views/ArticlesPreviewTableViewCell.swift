@@ -116,7 +116,7 @@ class ArticlesPreviewTableViewCell: UITableViewCell {
             completed: nil)
         self.articleTitleLabel.text = title
         self.articleDescriptionLabel.text = description
-        self.articleDateCreatedLabel.text = "Created on: \(date)"
+        self.articleDateCreatedLabel.text = "Created on: \(String(date.prefix(10)))"
     }
     
     private func checkImageURL(for url: URL) -> URL? {

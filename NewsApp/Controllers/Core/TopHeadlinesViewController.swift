@@ -72,7 +72,10 @@ extension TopHeadlinesViewController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        print("open new vc")
+        let vc = ViewArticleViewController(article: articlesToShow[indexPath.row])
+        vc.navigationItem.largeTitleDisplayMode = .never
+        vc.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
