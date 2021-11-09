@@ -41,10 +41,12 @@ class SelectSourcesViewController: UIViewController {
     }
     
     @objc private func didTapDoneButton(sender _: UIBarButtonItem) {
-        let vc = TabBarViewController()
+        let vc = TopHeadlinesViewController()
+        vc.title = "Top Headlines"
+//        let navVC = UINavigationController(rootViewController: vc)
         vc.modalPresentationStyle = .fullScreen
         vc.navigationItem.largeTitleDisplayMode = .always
-        present(vc, animated: true, completion: nil)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     private func getSources() {

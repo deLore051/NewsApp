@@ -105,7 +105,7 @@ class ArticlesPreviewTableViewCell: UITableViewCell {
             return
         }
         
-        guard let validImageURL = checkImageURL(for: imageURL) else {
+        guard let validImageURL = ArticlesManager.shared.checkImageURL(for: imageURL) else {
             return
         }
         
@@ -119,12 +119,6 @@ class ArticlesPreviewTableViewCell: UITableViewCell {
         self.articleDateCreatedLabel.text = "Created on: \(String(date.prefix(10)))"
     }
     
-    private func checkImageURL(for url: URL) -> URL? {
-        var stringURL = url.description
-        if stringURL.contains("//ocdn") {
-            stringURL = "https:" + url.description
-        }
-        return URL(string: stringURL)
-    }
+    
     
 }

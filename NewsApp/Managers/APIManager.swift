@@ -92,8 +92,26 @@ final class APIManager {
         }
     }
     
-    
-    
+    /// Get all articles that contain entered query from search bar in their content parameter
+    public func getEverything(for query: String, completion: @escaping (Result<TopHeadlinesResponse, Error>) -> Void) {
+        let url = Constansts.API.everythingAPIurl + query
+        createRequest(with: URL(string: url), type: .GET) { request in
+            let task = URLSession.shared.dataTask(with: request) { data, _, error in
+                guard let data = data, error == nil else {
+                    print("Failed to get articles for query.")
+                    completion(.failure(APIError.failedToGetData))
+                    return
+                }
+                do {
+                    let result = try JSONDecoder().decode(TopHeadlinesResponse.self, from: data)
+                    completion(.success(result))
+                } catch {
+                    completion(.failure(error))
+                }
+            }
+            task.resume()
+        }
+    }
 
     
 }

@@ -16,8 +16,9 @@ class ViewArticleViewController: UIViewController {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.backgroundColor = .systemBackground
-        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 1000)
+        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 1200)
         scrollView.clipsToBounds = true
+        scrollView.showsHorizontalScrollIndicator = false
         return scrollView
     }()
     
@@ -103,6 +104,7 @@ class ViewArticleViewController: UIViewController {
         addSubviews()
         addConstraints()
         configureView()
+        scrollView.delegate = self
     }
     
     private func addSubviews() {
@@ -124,8 +126,8 @@ class ViewArticleViewController: UIViewController {
         scrollView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor).isActive = true
         
         // ContentView
-        contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-        contentView.heightAnchor.constraint(equalToConstant: 1000).isActive = true
+        contentView.widthAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.widthAnchor).isActive = true
+        contentView.heightAnchor.constraint(equalToConstant: 1200).isActive = true
         
         // ArticleTitleLabel
         articleTitleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
@@ -171,7 +173,7 @@ class ViewArticleViewController: UIViewController {
               let imageURL = article.urlToImage,
               let date = article.publishedAt else { return }
         
-        guard let validImageURL = checkImageURL(for: imageURL) else {
+        guard let validImageURL = ArticlesManager.shared.checkImageURL(for: imageURL) else {
             return
         }
         
@@ -186,13 +188,15 @@ class ViewArticleViewController: UIViewController {
         self.articleDateCreatedLabel.text = "Created on: \(String(date.prefix(10)))"
     }
     
-    private func checkImageURL(for url: URL) -> URL? {
-        var stringURL = url.description
-        if stringURL.contains("//ocdn") {
-            stringURL = "https:" + url.description
-        }
-        return URL(string: stringURL)
-    }
+}
+
+
+extension ViewArticleViewController: UIScrollViewDelegate {
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.x != 0 {
+            scrollView.contentOffset.x = 0
+        }
+    }
     
 }

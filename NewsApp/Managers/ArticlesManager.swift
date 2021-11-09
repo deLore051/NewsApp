@@ -15,6 +15,7 @@ final class ArticlesManager {
     public var categories: [String] = []
     public var selectedSources: [String] = []
     public var articlesToShow: [Article] = []
+    public var articlesForQuery: [Article] = []
     
     
     private init() { }
@@ -158,6 +159,7 @@ final class ArticlesManager {
         }
     }
     
+    /// Get all top headlines for selected sources and selected country.
     public func getArticlesForSelectedSources(for articles: [Article]) -> [Article] {
         var articlesToShow: [Article] = []
         for i in 0..<selectedSources.count {
@@ -170,5 +172,26 @@ final class ArticlesManager {
         return articlesToShow
     }
 
+    /// Get all articles that contain the entered query in their content property.
+    public func getArticlesForQuery(with query: String) {
+        APIManager.shared.getEverything(for: query) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let response):
+                self.articlesForQuery = response.articles
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    /// Check if articles imageToUrl propery is valid URL
+    public func checkImageURL(for url: URL) -> URL? {
+        var stringURL = url.description
+        if stringURL.contains("//ocdn") {
+            stringURL = "https:" + url.description
+        }
+        return URL(string: stringURL)
+    }
     
 }

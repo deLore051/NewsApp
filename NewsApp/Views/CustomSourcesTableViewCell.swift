@@ -32,9 +32,9 @@ class CustomSourcesTableViewCell: UITableViewCell {
     }
     
     private func addConstraints() {
-        sourceNameLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        sourceNameLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
         sourceNameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        sourceNameLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -20).isActive = true
+        sourceNameLabel.widthAnchor.constraint(equalTo: widthAnchor, constant: -20).isActive = true
         sourceNameLabel.heightAnchor.constraint(equalTo: contentView.heightAnchor, constant: -10).isActive = true
     }
     
@@ -57,6 +57,7 @@ class CustomSourcesTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         accessoryType = selected ? .checkmark : .none
+        
     }
     
     

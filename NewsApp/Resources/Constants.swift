@@ -59,5 +59,6 @@ struct Constansts {
         static let topHeadlinesAPIurl = "https://newsapi.org/v2/top-headlines?country="
         static let topHeadlinesForSourceAPIurl = "https://newsapi.org/v2/top-headlines?sources="
         static let sourcesAPIurl = "https://newsapi.org/v2/top-headlines/sources?country="
+        static let everythingAPIurl = "https://newsapi.org/v2/everything?q="
     }
 }
