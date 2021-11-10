@@ -15,7 +15,6 @@
 		7FB22398272C4B240094F44E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FB22396272C4B240094F44E /* LaunchScreen.storyboard */; };
 		7FB223A9272C4C800094F44E /* ViewArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB223A8272C4C800094F44E /* ViewArticleViewController.swift */; };
 		7FB223AB272C4FC60094F44E /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB223AA272C4FC60094F44E /* APIManager.swift */; };
-		7FB223AF272C58D40094F44E /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB223AE272C58D40094F44E /* Category.swift */; };
 		7FB223B1272C617E0094F44E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB223B0272C617E0094F44E /* Constants.swift */; };
 		7FB223B3272EC2ED0094F44E /* UIButton+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB223B2272EC2ED0094F44E /* UIButton+Additions.swift */; };
 		7FB223B7272EE07A0094F44E /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB223B6272EE07A0094F44E /* Country.swift */; };
@@ -41,7 +40,6 @@
 		7FB22399272C4B240094F44E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7FB223A8272C4C800094F44E /* ViewArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewArticleViewController.swift; sourceTree = "<group>"; };
 		7FB223AA272C4FC60094F44E /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
-		7FB223AE272C58D40094F44E /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		7FB223B0272C617E0094F44E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7FB223B2272EC2ED0094F44E /* UIButton+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Additions.swift"; sourceTree = "<group>"; };
 		7FB223B6272EE07A0094F44E /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
@@ -132,7 +130,6 @@
 		7FB223A1272C4BCF0094F44E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				7FB223AE272C58D40094F44E /* Category.swift */,
 				7FB223B6272EE07A0094F44E /* Country.swift */,
 				7FB223C62731914E0094F44E /* TopHeadlinesResponse.swift */,
 				7FB223CA2731A4640094F44E /* SourcesResponse.swift */,
@@ -317,7 +314,6 @@
 				7FB223B1272C617E0094F44E /* Constants.swift in Sources */,
 				7FB2238E272C4B1F0094F44E /* SceneDelegate.swift in Sources */,
 				7FB223CD2731BC8E0094F44E /* SelectSourcesViewController.swift in Sources */,
-				7FB223AF272C58D40094F44E /* Category.swift in Sources */,
 				7FB223BF27314C7C0094F44E /* SelectCountryViewController.swift in Sources */,
 				7FB223AB272C4FC60094F44E /* APIManager.swift in Sources */,
 			);

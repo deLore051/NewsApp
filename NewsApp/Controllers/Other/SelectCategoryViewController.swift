@@ -9,6 +9,8 @@ import UIKit
 
 class SelectCategoryViewController: UIViewController {
     
+    private var categories: [String] = []
+    
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -31,10 +33,18 @@ class SelectCategoryViewController: UIViewController {
     }
     
     private func getCategories() {
-        ArticlesManager.shared.getCategories()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+        ArticlesManager.shared.getCategories { [weak self] result in
             guard let self = self else { return }
-            self.tableView.reloadData()
+            switch result {
+            case .success(let categories):
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    self.categories.append(contentsOf: categories)
+                    self.tableView.reloadData()
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
         }
     }
         
@@ -63,12 +73,12 @@ class SelectCategoryViewController: UIViewController {
 
 extension SelectCategoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ArticlesManager.shared.categories.count
+        return categories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let category = ArticlesManager.shared.categories[indexPath.row]
+        let category = categories[indexPath.row]
         cell.textLabel?.text = category
         cell.textLabel?.textAlignment = .center
         cell.textLabel?.font = .systemFont(ofSize: 22, weight: .medium)

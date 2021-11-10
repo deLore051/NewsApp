@@ -65,15 +65,8 @@ final class APIManager {
     }
     
     /// Get sources for in the selected country
-    public func getSources(
-        for country: String,
-        category: String?,
-        completion: @escaping (Result<SourcesResponse, Error>) -> Void) {
-        var url: String = Constansts.API.sourcesAPIurl + country
-        if let category = category {
-            url = Constansts.API.sourcesAPIurl + country + "&category=" + category
-        }
-        
+    public func getSources(completion: @escaping (Result<SourcesResponse, Error>) -> Void) {
+        let url = Constansts.API.sourcesAPIurl + self.selectedCountryCode + "&category=" + self.selectedCategory
         createRequest(with: URL(string: url), type: .GET) { request in
             let task = URLSession.shared.dataTask(with: request) { data, _, error in
                 guard let data = data, error == nil else {
@@ -92,18 +85,18 @@ final class APIManager {
         }
     }
     
-    /// Get all articles that contain entered query from search bar in their content parameter
-    public func getEverything(for query: String, completion: @escaping (Result<TopHeadlinesResponse, Error>) -> Void) {
-        let url = Constansts.API.everythingAPIurl + query
+    /// Get available categories for sources
+    public func getCategories(completion: @escaping (Result<SourcesResponse, Error>) -> Void) {
+        let url = Constansts.API.sourcesAPIurl + "us"
         createRequest(with: URL(string: url), type: .GET) { request in
             let task = URLSession.shared.dataTask(with: request) { data, _, error in
                 guard let data = data, error == nil else {
-                    print("Failed to get articles for query.")
+                    print("Failed to get sources")
                     completion(.failure(APIError.failedToGetData))
                     return
                 }
                 do {
-                    let result = try JSONDecoder().decode(TopHeadlinesResponse.self, from: data)
+                    let result = try JSONDecoder().decode(SourcesResponse.self, from: data)
                     completion(.success(result))
                 } catch {
                     completion(.failure(error))
@@ -112,6 +105,4 @@ final class APIManager {
             task.resume()
         }
     }
-
-    
 }

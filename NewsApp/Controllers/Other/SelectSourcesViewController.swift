@@ -43,19 +43,24 @@ class SelectSourcesViewController: UIViewController {
     @objc private func didTapDoneButton(sender _: UIBarButtonItem) {
         let vc = TopHeadlinesViewController()
         vc.title = "Top Headlines"
-//        let navVC = UINavigationController(rootViewController: vc)
         vc.modalPresentationStyle = .fullScreen
         vc.navigationItem.largeTitleDisplayMode = .always
         navigationController?.pushViewController(vc, animated: true)
     }
     
     private func getSources() {
-        let country = APIManager.shared.selectedCountryCode
-        let category = APIManager.shared.selectedCategory
-        ArticlesManager.shared.getSources(for: country, category: category)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
+        ArticlesManager.shared.getSources { [weak self] result in
             guard let self = self else { return }
-            self.tableView.reloadData()
+            switch result {
+            case .success(let sources):
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    self.sourcesModel.append(contentsOf: sources)
+                    self.tableView.reloadData()
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
         }
     }
         
@@ -84,14 +89,13 @@ class SelectSourcesViewController: UIViewController {
 
 extension SelectSourcesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ArticlesManager.shared.sources.count
+        return sourcesModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: CustomSourcesTableViewCell.identifier,
             for: indexPath) as! CustomSourcesTableViewCell
-        self.sourcesModel = ArticlesManager.shared.sources
         let source: NewsSource? = sourcesModel[indexPath.row]
         if let source = source {
             cell.configure(with: source.name)
