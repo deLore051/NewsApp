@@ -9,7 +9,6 @@ import UIKit
 
 class TopHeadlinesViewController: UIViewController {
     
-    private var articles: [Article] = []
     private var articlesToShow: [Article] = []
     
     private let tableView: UITableView = {
@@ -35,13 +34,20 @@ class TopHeadlinesViewController: UIViewController {
     }
     
     private func getArticles() {
-        ArticlesManager.shared.getTopHeadlines()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
+        ArticlesManager.shared.getTopHeadlines { [weak self] result in
             guard let self = self else { return }
-            self.articlesToShow = ArticlesManager.shared.articlesToShow
-            print(self.articlesToShow.count)
-            self.tableView.reloadData()
+            switch result {
+            case .success(let articles):
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    self.articlesToShow.append(contentsOf: articles)
+                    self.tableView.reloadData()
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
         }
+        
     }
 
     private func addConstraints() {

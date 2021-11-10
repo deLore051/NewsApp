@@ -10,10 +10,9 @@ import Foundation
 final class ArticlesManager {
     
     static let shared = ArticlesManager()
-    public var articles: [Article] = []
     public var selectedSources: [String] = []
-    public var articlesToShow: [Article] = []
-    public var articlesForQuery: [Article] = []
+    private var sources: [NewsSource] = []
+    private var articlesToShow: [Article] = []
     
     
     private init() { }
@@ -63,7 +62,7 @@ final class ArticlesManager {
         return sourcesFromArticles
     }
     
-    /// Check if the selected sources id property has a value or is it nil
+    /// Check if selected sources id is nil or not
     private func checkSelectedSourceId(for source: String, sources: [NewsSource]) -> String? {
         for i in 0..<sources.count {
             if source == sources[i].name {
@@ -78,42 +77,36 @@ final class ArticlesManager {
     //MARK: - Public
     
     /// Get top headlines for selected country
-    public func getTopHeadlines() {
-        self.getSources { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success(let sources):
-                for i in 0..<self.selectedSources.count {
-                    if let source = self.checkSelectedSourceId(for: self.selectedSources[i], sources: sources) {
-                        APIManager.shared.getTopHeadlines(for: source) { [weak self] result in
-                            guard let self = self else { return }
-                            switch result {
-                            case .success(let response):
-                                self.articlesToShow.append(contentsOf: response.articles)
-                            case.failure(let error):
-                                print(error.localizedDescription)
-                            }
-                        }
-                    } else {
-                        APIManager.shared.getTopHeadlines(for: nil) { [weak self] result in
-                            guard let self = self else { return }
-                            switch result {
-                            case .success(let response):
-                                let newArticles = response.articles
-                                for j in 0..<newArticles.count {
-                                    if self.selectedSources[i] == newArticles[j].source.name {
-                                        self.articlesToShow.append(newArticles[j])
-                                    }
-                                }
-                            case.failure(let error):
-                                print(error.localizedDescription)
-                            }
-
-                        }
+    public func getTopHeadlines(completion: @escaping (Result<[Article], Error>) -> Void) {
+        self.articlesToShow = []
+        for i in 0..<selectedSources.count {
+            if let source = checkSelectedSourceId(for: selectedSources[i], sources: sources) {
+                APIManager.shared.getTopHeadlines(for: source) { [weak self] result in
+                    guard let self = self else { return }
+                    switch result {
+                    case .success(let response):
+                        self.articlesToShow.append(contentsOf: response.articles)
+                        completion(.success(self.articlesToShow))
+                    case.failure(let error):
+                        completion(.failure(error))
                     }
                 }
-            case .failure(let error):
-                print(error.localizedDescription)
+            } else {
+                APIManager.shared.getTopHeadlines(for: nil) { [weak self] result in
+                    guard let self = self else { return }
+                    switch result {
+                    case .success(let response):
+                        let newArticles = response.articles
+                        for j in 0..<newArticles.count {
+                            if self.selectedSources[i] == newArticles[j].source.name {
+                                self.articlesToShow.append(newArticles[j])
+                            }
+                        }
+                        completion(.success(self.articlesToShow))
+                    case.failure(let error):
+                        completion(.failure(error))
+                    }
+                }
             }
         }
     }
@@ -121,19 +114,22 @@ final class ArticlesManager {
     
     /// Get all souces for a country, and a specific category if needed
     public func getSources(completion: @escaping (Result<[NewsSource], Error>) -> Void) {
+        self.sources = []
+        self.selectedSources = []
         APIManager.shared.getSources() { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let response):
                 if response.sources.isEmpty == false {
+                    self.sources.append(contentsOf: response.sources)
                     completion(.success(response.sources))
                 } else {
                     APIManager.shared.getTopHeadlines(for: nil) { [weak self] newResult in
                         guard let self = self else { return }
                         switch newResult {
                         case .success(let newResponse):
-                            let sources = self.getSourcesFromArticles(articles: newResponse.articles)
-                            completion(.success(sources))
+                            self.sources.append(contentsOf: self.getSourcesFromArticles(articles: newResponse.articles))
+                            completion(.success(self.sources))
                         case.failure(let newError):
                             completion(.failure(newError))
                         }
