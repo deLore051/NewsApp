@@ -91,7 +91,7 @@ extension SelectCategoryViewController: UITableViewDelegate, UITableViewDataSour
               let category = cell.textLabel?.text else {
             return
         }
-        APIManager.shared.selectedCategory = category
+        AppSettings.shared.selectedCategory = category
         let vc = SelectSourcesViewController()
         vc.navigationItem.largeTitleDisplayMode = .always
         navigationController?.pushViewController(vc, animated: true)

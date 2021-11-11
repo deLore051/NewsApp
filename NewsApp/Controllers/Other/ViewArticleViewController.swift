@@ -151,19 +151,19 @@ class ViewArticleViewController: UIViewController {
         articleDescriptionLabel.topAnchor.constraint(equalTo: articleImageView.bottomAnchor, constant: 10).isActive = true
         articleDescriptionLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         articleDescriptionLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -20).isActive = true
-        articleDescriptionLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 250).isActive = true
+        articleDescriptionLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 150).isActive = true
         
         // ArticleAuthorLabel
         articleAuthorLabel.topAnchor.constraint(equalTo: articleDescriptionLabel.bottomAnchor, constant: 10).isActive = true
         articleAuthorLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         articleAuthorLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -20).isActive = true
-        articleAuthorLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        articleAuthorLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         // ArticleDateCreatedLabel
         articleDateCreatedLabel.topAnchor.constraint(equalTo: articleAuthorLabel.bottomAnchor).isActive = true
         articleDateCreatedLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         articleDateCreatedLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -20).isActive = true
-        articleDateCreatedLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        articleDateCreatedLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
     }
     

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class TopHeadlinesViewController: UIViewController {
     
@@ -28,6 +29,10 @@ class TopHeadlinesViewController: UIViewController {
         view.backgroundColor = .systemBackground
         view.addSubview(tableView)
         addConstraints()
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.showSpinner()
+        }
         tableView.delegate = self
         tableView.dataSource = self
         getArticles()
@@ -42,6 +47,7 @@ class TopHeadlinesViewController: UIViewController {
                     guard let self = self else { return }
                     self.articlesToShow.append(contentsOf: articles)
                     self.tableView.reloadData()
+                    self.removeSpinner()
                 }
             case .failure(let error):
                 print(error.localizedDescription)
@@ -78,14 +84,18 @@ extension TopHeadlinesViewController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let vc = ViewArticleViewController(article: articlesToShow[indexPath.row])
-        vc.navigationItem.largeTitleDisplayMode = .never
-        vc.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(vc, animated: true)
+        guard let stringUrl = articlesToShow[indexPath.row].url,
+              let url = URL(string: stringUrl) else { return }
+        let vc = SFSafariViewController(url: url)
+        present(vc, animated: true, completion: nil)
+//        let vc = ViewArticleViewController(article: articlesToShow[indexPath.row])
+//        vc.navigationItem.largeTitleDisplayMode = .never
+//        vc.modalPresentationStyle = .fullScreen
+//        navigationController?.pushViewController(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300
+        return 370
     }
     
     

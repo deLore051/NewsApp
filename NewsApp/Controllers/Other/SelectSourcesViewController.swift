@@ -106,10 +106,10 @@ extension SelectSourcesViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! CustomSourcesTableViewCell
         let sourceName = cell.getLabelTitle()
-        ArticlesManager.shared.selectedSources.append(sourceName)
+        AppSettings.shared.selectedSources.append(sourceName)
         cell.isSelected = true
         navigationItem.rightBarButtonItem?.isEnabled = true
-        print(ArticlesManager.shared.selectedSources)
+        print(AppSettings.shared.selectedSources)
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
@@ -117,13 +117,13 @@ extension SelectSourcesViewController: UITableViewDelegate, UITableViewDataSourc
         let sourceName = cell.getLabelTitle()
         let index = checkIfSourceExistsInArray(source: sourceName)
         if index != -1 {
-            ArticlesManager.shared.selectedSources.remove(at: index)
+            AppSettings.shared.selectedSources.remove(at: index)
         }
         cell.isSelected = false
-        if ArticlesManager.shared.selectedSources.count == 0 {
+        if AppSettings.shared.selectedSources.count == 0 {
             navigationItem.rightBarButtonItem?.isEnabled = false
         }
-        print(ArticlesManager.shared.selectedSources)
+        print(AppSettings.shared.selectedSources)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -131,7 +131,7 @@ extension SelectSourcesViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     private func checkIfSourceExistsInArray(source: String) -> Int {
-        let selectedSources = ArticlesManager.shared.selectedSources
+        let selectedSources = AppSettings.shared.selectedSources
         for i in 0..<selectedSources.count {
             if source == selectedSources[i] {
                 return i

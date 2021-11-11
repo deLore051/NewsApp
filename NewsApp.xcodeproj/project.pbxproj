@@ -27,6 +27,8 @@
 		7FB223CD2731BC8E0094F44E /* SelectSourcesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB223CC2731BC8E0094F44E /* SelectSourcesViewController.swift */; };
 		7FB223CF273308010094F44E /* CustomSourcesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB223CE273308010094F44E /* CustomSourcesTableViewCell.swift */; };
 		7FB223D3273561E00094F44E /* ArticlesPreviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB223D2273561E00094F44E /* ArticlesPreviewTableViewCell.swift */; };
+		7FB223D5273C6A120094F44E /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB223D4273C6A120094F44E /* AppSettings.swift */; };
+		7FB223DB273C928C0094F44E /* UIViewController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB223DA273C928C0094F44E /* UIViewController+Additions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		7FB223CC2731BC8E0094F44E /* SelectSourcesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSourcesViewController.swift; sourceTree = "<group>"; };
 		7FB223CE273308010094F44E /* CustomSourcesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSourcesTableViewCell.swift; sourceTree = "<group>"; };
 		7FB223D2273561E00094F44E /* ArticlesPreviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesPreviewTableViewCell.swift; sourceTree = "<group>"; };
+		7FB223D4273C6A120094F44E /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		7FB223DA273C928C0094F44E /* UIViewController+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Additions.swift"; sourceTree = "<group>"; };
 		90B727441B8BB0F74F4244B4 /* Pods-NewsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsApp.debug.xcconfig"; path = "Target Support Files/Pods-NewsApp/Pods-NewsApp.debug.xcconfig"; sourceTree = "<group>"; };
 		E2ACC08EA412820233EA2486 /* Pods-NewsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsApp.release.xcconfig"; path = "Target Support Files/Pods-NewsApp/Pods-NewsApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,6 +146,7 @@
 			children = (
 				7FB223AA272C4FC60094F44E /* APIManager.swift */,
 				7FB223C82731A2770094F44E /* ArticlesManager.swift */,
+				7FB223D4273C6A120094F44E /* AppSettings.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -154,6 +159,7 @@
 				7FB2238D272C4B1F0094F44E /* SceneDelegate.swift */,
 				7FB223B0272C617E0094F44E /* Constants.swift */,
 				7FB223B2272EC2ED0094F44E /* UIButton+Additions.swift */,
+				7FB223DA273C928C0094F44E /* UIViewController+Additions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -302,6 +308,7 @@
 				7FB223A9272C4C800094F44E /* ViewArticleViewController.swift in Sources */,
 				7FB223D3273561E00094F44E /* ArticlesPreviewTableViewCell.swift in Sources */,
 				7FB223C3273156A50094F44E /* SelectCategoryViewController.swift in Sources */,
+				7FB223DB273C928C0094F44E /* UIViewController+Additions.swift in Sources */,
 				7FB223CF273308010094F44E /* CustomSourcesTableViewCell.swift in Sources */,
 				7FB223C92731A2770094F44E /* ArticlesManager.swift in Sources */,
 				7FB223C72731914E0094F44E /* TopHeadlinesResponse.swift in Sources */,
@@ -313,6 +320,7 @@
 				7FB223B3272EC2ED0094F44E /* UIButton+Additions.swift in Sources */,
 				7FB223B1272C617E0094F44E /* Constants.swift in Sources */,
 				7FB2238E272C4B1F0094F44E /* SceneDelegate.swift in Sources */,
+				7FB223D5273C6A120094F44E /* AppSettings.swift in Sources */,
 				7FB223CD2731BC8E0094F44E /* SelectSourcesViewController.swift in Sources */,
 				7FB223BF27314C7C0094F44E /* SelectCountryViewController.swift in Sources */,
 				7FB223AB272C4FC60094F44E /* APIManager.swift in Sources */,

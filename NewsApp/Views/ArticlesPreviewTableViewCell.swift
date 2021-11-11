@@ -12,6 +12,16 @@ class ArticlesPreviewTableViewCell: UITableViewCell {
     
     static let identifier = "ArticlesPreviewTableViewCell"
     
+    private let sourceNameLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.clipsToBounds = true
+        label.font = .systemFont(ofSize: 20, weight: .medium)
+        label.textAlignment = .center
+        label.numberOfLines = 1
+        return label
+    }()
+    
     private let previewArticleImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -24,8 +34,9 @@ class ArticlesPreviewTableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.clipsToBounds = true
-        label.font = .systemFont(ofSize: 22, weight: .medium)
+        label.font = .systemFont(ofSize: 22, weight: .bold)
         label.numberOfLines = 0
+        label.textAlignment = .center
         return label
     }()
     
@@ -49,6 +60,7 @@ class ArticlesPreviewTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        contentView.addSubview(sourceNameLabel)
         contentView.addSubview(previewArticleImageView)
         contentView.addSubview(articleTitleLabel)
         contentView.addSubview(articleDescriptionLabel)
@@ -61,47 +73,55 @@ class ArticlesPreviewTableViewCell: UITableViewCell {
     }
     
     private func addConstraints() {
-        // PreviewArticleImageView
-        previewArticleImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
-        previewArticleImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
-        previewArticleImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        previewArticleImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        // SourceNameLabel
+        sourceNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
+        sourceNameLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        sourceNameLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -20).isActive = true
+        sourceNameLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 30).isActive = true
         
         // ArticleTitleLabel
-        articleTitleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
-        articleTitleLabel.leadingAnchor
-            .constraint(equalTo: previewArticleImageView.trailingAnchor, constant: 10).isActive = true
-        articleTitleLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -130).isActive = true
-        articleTitleLabel.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        articleTitleLabel.topAnchor.constraint(equalTo: sourceNameLabel.bottomAnchor).isActive = true
+        articleTitleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        articleTitleLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -20).isActive = true
+        articleTitleLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 100).isActive = true
+        
+        // PreviewArticleImageView
+        previewArticleImageView.topAnchor.constraint(equalTo: articleTitleLabel.bottomAnchor, constant: 10).isActive = true
+        previewArticleImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
+        previewArticleImageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        previewArticleImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+    
         
         // ArticleDescriptionLabel
-        articleDescriptionLabel.topAnchor
-            .constraint(equalTo: previewArticleImageView.bottomAnchor, constant: 10).isActive = true
-        articleDescriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
-        articleDescriptionLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -20).isActive = true
-        articleDescriptionLabel.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        articleDescriptionLabel.topAnchor.constraint(equalTo: articleTitleLabel.bottomAnchor, constant: 10).isActive = true
+        articleDescriptionLabel.leadingAnchor
+            .constraint(equalTo: previewArticleImageView.trailingAnchor, constant: 10).isActive = true
+        articleDescriptionLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -180).isActive = true
+        articleDescriptionLabel.heightAnchor.constraint(equalToConstant: 150).isActive = true
         
         // ArticleDateCreated
         articleDateCreatedLabel.topAnchor
-            .constraint(equalTo: articleDescriptionLabel.bottomAnchor, constant: 10).isActive = true
+            .constraint(equalTo: previewArticleImageView.bottomAnchor, constant: 10).isActive = true
         articleDateCreatedLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
         articleDateCreatedLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -20).isActive = true
-        articleDateCreatedLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        articleDateCreatedLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 30).isActive = true
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        self.sourceNameLabel.text = nil
         self.previewArticleImageView.image = nil
         self.articleTitleLabel.text = nil
         self.articleDescriptionLabel.text = nil
         self.articleDateCreatedLabel.text = nil
     }
     
-    public func configure(with article: Article) {
-        guard let imageURL = article.urlToImage,
-              let title = article.title,
-              let description = article.description,
-              let date = article.publishedAt else {
+    public func configure(with model: Article) {
+        guard let imageURL = model.urlToImage,
+              let sourceName = model.source.name,
+              let title = model.title,
+              let description = model.description,
+              let date = model.publishedAt else {
             return
         }
         
@@ -109,6 +129,7 @@ class ArticlesPreviewTableViewCell: UITableViewCell {
             return
         }
         
+        self.sourceNameLabel.text = "--- \(sourceName) ---"
         self.previewArticleImageView.sd_setImage(
             with: validImageURL,
             placeholderImage: UIImage(systemName: "photo"),

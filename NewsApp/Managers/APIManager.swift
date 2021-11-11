@@ -11,9 +11,6 @@ final class APIManager {
     
     static let shared = APIManager()
     
-    public var selectedCategory: String = ""
-    public var selectedCountryCode: String = ""
-    
     enum HTTPMethod: String {
         case GET
         case POST
@@ -42,7 +39,7 @@ final class APIManager {
     
     /// Get top headlines for a country, specific category in a country, single or multiple sources
     public func getTopHeadlines(for source: String?, completion: @escaping (Result<TopHeadlinesResponse, Error>) -> Void) {
-        var url: String = Constansts.API.topHeadlinesAPIurl + selectedCountryCode
+        var url: String = Constansts.API.topHeadlinesAPIurl + AppSettings.shared.selectedCountryCode
         if let source = source {
             url = Constansts.API.topHeadlinesForSourceAPIurl + source
         }
@@ -66,7 +63,7 @@ final class APIManager {
     
     /// Get sources for in the selected country
     public func getSources(completion: @escaping (Result<SourcesResponse, Error>) -> Void) {
-        let url = Constansts.API.sourcesAPIurl + self.selectedCountryCode + "&category=" + self.selectedCategory
+        let url = Constansts.API.sourcesAPIurl + AppSettings.shared.selectedCountryCode + "&category=" + AppSettings.shared.selectedCategory
         createRequest(with: URL(string: url), type: .GET) { request in
             let task = URLSession.shared.dataTask(with: request) { data, _, error in
                 guard let data = data, error == nil else {
