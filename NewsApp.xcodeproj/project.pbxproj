@@ -13,7 +13,6 @@
 		7FB22390272C4B1F0094F44E /* TopHeadlinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB2238F272C4B1F0094F44E /* TopHeadlinesViewController.swift */; };
 		7FB22395272C4B240094F44E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FB22394272C4B240094F44E /* Assets.xcassets */; };
 		7FB22398272C4B240094F44E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FB22396272C4B240094F44E /* LaunchScreen.storyboard */; };
-		7FB223A9272C4C800094F44E /* ViewArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB223A8272C4C800094F44E /* ViewArticleViewController.swift */; };
 		7FB223AB272C4FC60094F44E /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB223AA272C4FC60094F44E /* APIManager.swift */; };
 		7FB223B1272C617E0094F44E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB223B0272C617E0094F44E /* Constants.swift */; };
 		7FB223B3272EC2ED0094F44E /* UIButton+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB223B2272EC2ED0094F44E /* UIButton+Additions.swift */; };
@@ -40,7 +39,6 @@
 		7FB22394272C4B240094F44E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7FB22397272C4B240094F44E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7FB22399272C4B240094F44E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7FB223A8272C4C800094F44E /* ViewArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewArticleViewController.swift; sourceTree = "<group>"; };
 		7FB223AA272C4FC60094F44E /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		7FB223B0272C617E0094F44E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7FB223B2272EC2ED0094F44E /* UIButton+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Additions.swift"; sourceTree = "<group>"; };
@@ -175,7 +173,6 @@
 		7FB223C5273156F60094F44E /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				7FB223A8272C4C800094F44E /* ViewArticleViewController.swift */,
 				7FB223BE27314C7C0094F44E /* SelectCountryViewController.swift */,
 				7FB223C2273156A50094F44E /* SelectCategoryViewController.swift */,
 				7FB223CC2731BC8E0094F44E /* SelectSourcesViewController.swift */,
@@ -305,7 +302,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7FB223A9272C4C800094F44E /* ViewArticleViewController.swift in Sources */,
 				7FB223D3273561E00094F44E /* ArticlesPreviewTableViewCell.swift in Sources */,
 				7FB223C3273156A50094F44E /* SelectCategoryViewController.swift in Sources */,
 				7FB223DB273C928C0094F44E /* UIViewController+Additions.swift in Sources */,

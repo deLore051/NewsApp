@@ -88,10 +88,6 @@ extension TopHeadlinesViewController: UITableViewDataSource, UITableViewDelegate
               let url = URL(string: stringUrl) else { return }
         let vc = SFSafariViewController(url: url)
         present(vc, animated: true, completion: nil)
-//        let vc = ViewArticleViewController(article: articlesToShow[indexPath.row])
-//        vc.navigationItem.largeTitleDisplayMode = .never
-//        vc.modalPresentationStyle = .fullScreen
-//        navigationController?.pushViewController(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
